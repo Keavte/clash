@@ -15,8 +15,8 @@
     },
   "dns": {
     "servers": [
-      {"tag": "proxyDns", "address": "tls://8.8.8.8", "address_resolver": "localDns", "address_strategy": "ipv4_only", "detour": "🚀 节点选择"},
-      {"tag": "localDns", "address": "223.5.5.5", "detour": "🎯 全球直连"},
+      {"tag": "proxyDns", "address": "tcp://192.168.1.3:5364", "address_resolver": "localDns", "address_strategy": "ipv4_only", "detour": "🚀 节点选择"},
+      {"tag": "localDns", "address": "202.103.224.68", "detour": "🎯 全球直连"},
       {"tag": "fakeip", "address": "fakeip"},
       {"tag": "block", "address": "rcode://success"}
     ],
@@ -97,7 +97,7 @@
         "auto_detect_interface": true,
         "final": "🐟 漏网之鱼",
     "rules": [
-      { "type": "logical", "mode": "or", "rules": [{ "port": 53 }, { "protocol": "dns" }], "outbound": "dns-out" },
+      { "type": "logical", "mode": "or", "rules": [{ "port": 5335 }, { "protocol": "dns" }], "outbound": "dns-out" },
       { "clash_mode": "direct", "outbound": "🎯 全球直连" },
       { "clash_mode": "global", "outbound": "GLOBAL" },
       { "domain": ["clash.razord.top", "yacd.metacubex.one", "yacd.haishan.me", "d.metacubex.one"], "outbound": "🎯 全球直连" },
