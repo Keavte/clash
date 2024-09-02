@@ -15,13 +15,13 @@
     },
   "dns": {
     "servers": [
-      {"tag": "proxyDns", "address": "tls://192.168.1.3:5364", "address_resolver": "localDns", "address_strategy": "ipv4_only", "detour": "🚀 节点选择"},
-      {"tag": "localDns", "address": "tls://192.168.1.3:5363", "detour": "🎯 全球直连"},
+      {"tag": "proxyDns", "address": "tls://127.0.0.1:5364", "address_resolver": "localDns", "address_strategy": "ipv4_only", "detour": "🚀 节点选择"},
+      {"tag": "localDns", "address": "tls://127.0.0.1:5363", "detour": "🎯 全球直连"},
       {"tag": "fakeip", "address": "fakeip"},
       {"tag": "block", "address": "rcode://success"}
     ],
     "rules": [
-      {"outbound": "any", "server": "localDns", "disable_cache": true},
+      {"outbound": "localDns", "server": "localDns", "disable_cache": true},
       {"clash_mode": "direct", "server": "localDns"},
       {"clash_mode": "global", "server": "proxyDns"},
       {"rule_set": "geosite-cn", "server": "localDns"},
